@@ -18,6 +18,11 @@ BOOL isCommandDown = NO;
 BOOL isLDown = NO;
 
 BOOL isLocked = NO;
+BOOL wasLocked = NO;
+
+void lockChanged() {
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"SINotificationLockChanged" object:nil]];
+}
 
 CGEventRef myCGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void *refcon) {
 	CGKeyCode keycode = (CGKeyCode)CGEventGetIntegerValueField(event, kCGKeyboardEventKeycode);
@@ -42,7 +47,7 @@ CGEventRef myCGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef
 	if (isShiftDown && isControlDown && isOptionDown && isCommandDown && isLDown) {
 		isLocked = !isLocked;
 		
-		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"SINotificationLockChanged" object:nil]];
+		lockChanged();
 		
 		// isShiftDown = NO;
 		// isControlDown = NO;
@@ -91,8 +96,16 @@ CGEventRef myCGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef
 		// Add to the current run loop.
 		CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, kCFRunLoopCommonModes);
 		
-		// Enable the event tap.
+		// enable the event tap.
 		CGEventTapEnable(eventTap, true);
+		
+		// disable lock during screensavers/sleep
+		NSDistributedNotificationCenter *dnc = [NSDistributedNotificationCenter defaultCenter];
+		
+		[dnc addObserver:self selector:@selector(pauseLock) name:@"com.apple.shutdownInitiated" object:nil];
+		[dnc addObserver:self selector:@selector(pauseLock) name:@"com.apple.shieldWindowRaised" object:nil];
+		[dnc addObserver:self selector:@selector(resumeLock) name:@"com.apple.shieldWindowLowered" object:nil];
+		[dnc addObserver:self selector:@selector(resumeLock) name:@"com.apple.logoutCancelled" object:nil];
 	}
 	return self;
 }
@@ -103,8 +116,23 @@ CGEventRef myCGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef
 	return AXIsProcessTrustedWithOptions((CFDictionaryRef)options);
 }
 
--(BOOL)isLocked {
++(BOOL)isLocked {
 	return isLocked;
+}
+
+-(void)pauseLock {
+	if (isLocked) {
+		isLocked = NO;
+		wasLocked = YES;
+		lockChanged();
+	}
+}
+-(void)resumeLock {
+	if (wasLocked) {
+		isLocked = YES;
+		wasLocked = NO;
+		lockChanged();
+	}
 }
 
 @end

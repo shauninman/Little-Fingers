@@ -107,8 +107,7 @@ class StatusItemController: NSObject {
 	
 	func updateIcon() {
 		if let button = statusItem.button {
-			let appDelegate = NSApp.delegate as! AppDelegate
-			if appDelegate.tapController.isLocked() {
+			if TapController.isLocked() {
 				if let image = NSImage(named: "on") {
 					image.isTemplate = true
 					button.image = image

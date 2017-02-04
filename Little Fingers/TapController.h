@@ -11,6 +11,6 @@
 @interface TapController : NSObject
 
 +(BOOL)isAccessibilityEnabled;
--(BOOL)isLocked;
++(BOOL)isLocked;
 
 @end
