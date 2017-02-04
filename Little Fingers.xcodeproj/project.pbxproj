@@ -1,0 +1,327 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA39CA261E452F1B0004AF68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA39CA251E452F1B0004AF68 /* AppDelegate.swift */; };
+		BA39CA281E452F1C0004AF68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA39CA271E452F1C0004AF68 /* Assets.xcassets */; };
+		BA39CA2B1E452F1C0004AF68 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA39CA291E452F1C0004AF68 /* MainMenu.xib */; };
+		BA5D1B921E464BC4005ED4FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BA5D1B911E464BC4005ED4FA /* Credits.rtf */; };
+		BADFC8BD1E456C4500213EEA /* TapController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADFC8BC1E456C4500213EEA /* TapController.m */; };
+		BADFC8C11E456E5F00213EEA /* off.pdf in Resources */ = {isa = PBXBuildFile; fileRef = BADFC8BE1E456E5F00213EEA /* off.pdf */; };
+		BADFC8C21E456E5F00213EEA /* on.pdf in Resources */ = {isa = PBXBuildFile; fileRef = BADFC8BF1E456E5F00213EEA /* on.pdf */; };
+		BADFC8C31E456E5F00213EEA /* privacy.scpt in Resources */ = {isa = PBXBuildFile; fileRef = BADFC8C01E456E5F00213EEA /* privacy.scpt */; };
+		BADFC8C71E45706600213EEA /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFC8C61E45706600213EEA /* StatusItemController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BA39CA221E452F1B0004AF68 /* Little Fingers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Little Fingers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA39CA251E452F1B0004AF68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA39CA271E452F1C0004AF68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA39CA2A1E452F1C0004AF68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BA39CA2C1E452F1C0004AF68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA5D1B911E464BC4005ED4FA /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		BADFC8B81E456C1500213EEA /* Little Fingers-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Little Fingers-Bridging-Header.h"; sourceTree = "<group>"; };
+		BADFC8BB1E456C4500213EEA /* TapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapController.h; sourceTree = "<group>"; };
+		BADFC8BC1E456C4500213EEA /* TapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapController.m; sourceTree = "<group>"; };
+		BADFC8BE1E456E5F00213EEA /* off.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = off.pdf; sourceTree = "<group>"; };
+		BADFC8BF1E456E5F00213EEA /* on.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = on.pdf; sourceTree = "<group>"; };
+		BADFC8C01E456E5F00213EEA /* privacy.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; path = privacy.scpt; sourceTree = "<group>"; };
+		BADFC8C61E45706600213EEA /* StatusItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA39CA1F1E452F1B0004AF68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA39CA191E452F1B0004AF68 = {
+			isa = PBXGroup;
+			children = (
+				BA39CA241E452F1B0004AF68 /* Little Fingers */,
+				BA39CA231E452F1B0004AF68 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA39CA231E452F1B0004AF68 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA39CA221E452F1B0004AF68 /* Little Fingers.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA39CA241E452F1B0004AF68 /* Little Fingers */ = {
+			isa = PBXGroup;
+			children = (
+				BA39CA251E452F1B0004AF68 /* AppDelegate.swift */,
+				BADFC8C61E45706600213EEA /* StatusItemController.swift */,
+				BA39CA271E452F1C0004AF68 /* Assets.xcassets */,
+				BADFC8BB1E456C4500213EEA /* TapController.h */,
+				BADFC8BC1E456C4500213EEA /* TapController.m */,
+				BA5D1B911E464BC4005ED4FA /* Credits.rtf */,
+				BADFC8BE1E456E5F00213EEA /* off.pdf */,
+				BADFC8BF1E456E5F00213EEA /* on.pdf */,
+				BADFC8C01E456E5F00213EEA /* privacy.scpt */,
+				BA39CA291E452F1C0004AF68 /* MainMenu.xib */,
+				BA39CA2C1E452F1C0004AF68 /* Info.plist */,
+				BADFC8B81E456C1500213EEA /* Little Fingers-Bridging-Header.h */,
+			);
+			path = "Little Fingers";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA39CA211E452F1B0004AF68 /* Little Fingers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA39CA2F1E452F1C0004AF68 /* Build configuration list for PBXNativeTarget "Little Fingers" */;
+			buildPhases = (
+				BA39CA1E1E452F1B0004AF68 /* Sources */,
+				BA39CA1F1E452F1B0004AF68 /* Frameworks */,
+				BA39CA201E452F1B0004AF68 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Little Fingers";
+			productName = "Little Fingers";
+			productReference = BA39CA221E452F1B0004AF68 /* Little Fingers.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA39CA1A1E452F1B0004AF68 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Shaun Inman";
+				TargetAttributes = {
+					BA39CA211E452F1B0004AF68 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = V24C7FVP32;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BA39CA1D1E452F1B0004AF68 /* Build configuration list for PBXProject "Little Fingers" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA39CA191E452F1B0004AF68;
+			productRefGroup = BA39CA231E452F1B0004AF68 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA39CA211E452F1B0004AF68 /* Little Fingers */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA39CA201E452F1B0004AF68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BADFC8C11E456E5F00213EEA /* off.pdf in Resources */,
+				BA5D1B921E464BC4005ED4FA /* Credits.rtf in Resources */,
+				BA39CA281E452F1C0004AF68 /* Assets.xcassets in Resources */,
+				BA39CA2B1E452F1C0004AF68 /* MainMenu.xib in Resources */,
+				BADFC8C31E456E5F00213EEA /* privacy.scpt in Resources */,
+				BADFC8C21E456E5F00213EEA /* on.pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA39CA1E1E452F1B0004AF68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA39CA261E452F1B0004AF68 /* AppDelegate.swift in Sources */,
+				BADFC8BD1E456C4500213EEA /* TapController.m in Sources */,
+				BADFC8C71E45706600213EEA /* StatusItemController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BA39CA291E452F1C0004AF68 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA39CA2A1E452F1C0004AF68 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA39CA2D1E452F1C0004AF68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BA39CA2E1E452F1C0004AF68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		BA39CA301E452F1C0004AF68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V24C7FVP32;
+				INFOPLIST_FILE = "Little Fingers/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shauninman.Little-Fingers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Little Fingers/Little Fingers-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BA39CA311E452F1C0004AF68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V24C7FVP32;
+				INFOPLIST_FILE = "Little Fingers/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shauninman.Little-Fingers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Little Fingers/Little Fingers-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA39CA1D1E452F1B0004AF68 /* Build configuration list for PBXProject "Little Fingers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA39CA2D1E452F1C0004AF68 /* Debug */,
+				BA39CA2E1E452F1C0004AF68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA39CA2F1E452F1C0004AF68 /* Build configuration list for PBXNativeTarget "Little Fingers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA39CA301E452F1C0004AF68 /* Debug */,
+				BA39CA311E452F1C0004AF68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA39CA1A1E452F1B0004AF68 /* Project object */;
+}
