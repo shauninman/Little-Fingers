@@ -73,7 +73,7 @@ class StatusItemController: NSObject {
 		
 		// TODO: populate About page
 		let item = NSMenuItem()
-		item.title = "About…"
+		item.title = "About Little Fingers"
 		item.action = #selector(showAbout)
 		item.target = self
 		menu.addItem(item)

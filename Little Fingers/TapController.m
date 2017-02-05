@@ -9,12 +9,19 @@
 #import <AppKit/AppKit.h>
 #import "TapController.h"
 
-// TODO: rewrite to only listen to keydown flagchanged when unlocked
+@interface TapController () {
+	
+}
++(void)listen;
++(void)ignore;
+@end
 
-BOOL isShiftDown = NO;
-BOOL isControlDown = NO;
-BOOL isOptionDown = NO;
+CGKeyCode kSIKeyCodeL = (CGKeyCode)37;
+
 BOOL isCommandDown = NO;
+BOOL isOptionDown = NO;
+BOOL isControlDown = NO;
+BOOL isShiftDown = NO;
 BOOL isLDown = NO;
 
 BOOL isLocked = NO;
@@ -24,44 +31,45 @@ void lockChanged() {
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"SINotificationLockChanged" object:nil]];
 }
 
-CGEventRef myCGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void *refcon) {
-	CGKeyCode keycode = (CGKeyCode)CGEventGetIntegerValueField(event, kCGKeyboardEventKeycode);
-	
+CGEventRef tapCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void *refcon) {
 	if (type == kCGEventFlagsChanged) {
-		// NSLog(@"flag changed:%u",keycode);
-		if (keycode == (CGKeyCode)56) isShiftDown = !isShiftDown;
-		if (keycode == (CGKeyCode)59) isControlDown = !isControlDown;
-		if (keycode == (CGKeyCode)58) isOptionDown = !isOptionDown;
-		if (keycode == (CGKeyCode)55) isCommandDown = !isCommandDown;
+		NSEventModifierFlags flags = [[NSEvent eventWithCGEvent:event] modifierFlags];
+		
+		isCommandDown = (flags & NSCommandKeyMask) == NSCommandKeyMask;
+		isOptionDown = (flags & NSAlternateKeyMask) == NSAlternateKeyMask;
+		isControlDown = (flags & NSControlKeyMask) == NSControlKeyMask;
+		isShiftDown = (flags & NSShiftKeyMask) == NSShiftKeyMask;
 	}
 	
+	CGKeyCode keycode = (CGKeyCode)CGEventGetIntegerValueField(event, kCGKeyboardEventKeycode);
 	if (type == kCGEventKeyDown) {
-		// NSLog(@"keycode (down):%u",keycode);
-		if (keycode == (CGKeyCode)37) isLDown = YES;
+		if (keycode == kSIKeyCodeL) isLDown = YES;
 	}
 	else if (type == kCGEventKeyUp) {
-		// NSLog(@"keycode (up):%u",keycode);
-		if (keycode == (CGKeyCode)37) isLDown = NO;
+		if (keycode == kSIKeyCodeL) isLDown = NO;
 	}
 	
 	if (isShiftDown && isControlDown && isOptionDown && isCommandDown && isLDown) {
+		isShiftDown = NO;
+		isControlDown = NO;
+		isOptionDown = NO;
+		isCommandDown = NO;
+		isLDown = NO;
+
 		isLocked = !isLocked;
-		
 		lockChanged();
 		
-		// isShiftDown = NO;
-		// isControlDown = NO;
-		// isOptionDown = NO;
-		// isCommandDown = NO;
+		if (isLocked) {
+			[TapController ignore];
+		}
+		else {
+			[TapController listen];
+		}
 		
-		isLDown = NO;
-		
-		// NSLog(@"isLocked:%i", isLocked);
 		return NULL;
 	}
 	
 	if (isLocked) {
-		// NSLog(@"ignore input");
 		return NULL;
 	}
 	else {
@@ -69,35 +77,41 @@ CGEventRef myCGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef
 	}
 }
 
+BOOL isTapEnabled = NO;
+CFMachPortRef listenEventTap;
+CFMachPortRef ignoreEventTap;
+CFRunLoopSourceRef	listenRunLoopSource;
+CFRunLoopSourceRef	ignoreRunLoopSource;
+
 @implementation TapController
 
 -(id)init {
 	self = [super init];
 	if (self) {
-		CFMachPortRef      eventTap;
-		CGEventMask        eventMask;
-		CFRunLoopSourceRef runLoopSource;
+		CGEventMask	listenEventMask	= CGEventMaskBit(kCGEventKeyDown) | CGEventMaskBit(kCGEventKeyUp) | CGEventMaskBit(kCGEventFlagsChanged);
+		CGEventMask	ignoreEventMask	= kCGEventMaskForAllEvents;
 		
-		// Create an event tap. We want to capture everything.
-		eventMask = kCGEventMaskForAllEvents;
-		eventTap = CGEventTapCreate(kCGSessionEventTap,
-									kCGHeadInsertEventTap,
-									kCGEventTapOptionDefault,
-									eventMask,
-									myCGEventCallback, NULL);
-		if (!eventTap) {
-			NSLog(@"failed to create event tap");
+		listenEventTap = CGEventTapCreate(kCGSessionEventTap,
+										  kCGHeadInsertEventTap,
+										  kCGEventTapOptionDefault,
+										  listenEventMask,
+										  tapCallback, NULL);
+		ignoreEventTap = CGEventTapCreate(kCGSessionEventTap,
+										  kCGHeadInsertEventTap,
+										  kCGEventTapOptionDefault,
+										  ignoreEventMask,
+										  tapCallback, NULL);
+		
+		if (!listenEventTap || !ignoreEventTap) {
+			NSLog(@"failed to create event taps");
 			exit(1);
 		}
 		
-		// Create a run loop source.
-		runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0);
+		listenRunLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, listenEventTap, 0);
+		ignoreRunLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, ignoreEventTap, 0);
 		
-		// Add to the current run loop.
-		CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, kCFRunLoopCommonModes);
-		
-		// enable the event tap.
-		CGEventTapEnable(eventTap, true);
+		[TapController listen];
+		isTapEnabled = YES;
 		
 		// disable lock during screensavers/sleep
 		NSDistributedNotificationCenter *dnc = [NSDistributedNotificationCenter defaultCenter];
@@ -108,6 +122,24 @@ CGEventRef myCGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef
 		[dnc addObserver:self selector:@selector(resumeLock) name:@"com.apple.logoutCancelled" object:nil];
 	}
 	return self;
+}
+
++(void)listen {
+	if (isTapEnabled) {
+		CFRunLoopRemoveSource(CFRunLoopGetCurrent(), ignoreRunLoopSource, kCFRunLoopCommonModes);
+		CGEventTapEnable(ignoreEventTap, false);
+	}
+	
+	CFRunLoopAddSource(CFRunLoopGetCurrent(), listenRunLoopSource, kCFRunLoopCommonModes);
+	CGEventTapEnable(listenEventTap, true);
+}
+
++(void)ignore {
+	CFRunLoopRemoveSource(CFRunLoopGetCurrent(), listenRunLoopSource, kCFRunLoopCommonModes);
+	CGEventTapEnable(listenEventTap, false);
+	
+	CFRunLoopAddSource(CFRunLoopGetCurrent(), ignoreRunLoopSource, kCFRunLoopCommonModes);
+	CGEventTapEnable(ignoreEventTap, true);
 }
 
 +(BOOL)isAccessibilityEnabled {
