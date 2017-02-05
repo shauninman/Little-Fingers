@@ -11,6 +11,8 @@
 		BA39CA281E452F1C0004AF68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA39CA271E452F1C0004AF68 /* Assets.xcassets */; };
 		BA39CA2B1E452F1C0004AF68 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA39CA291E452F1C0004AF68 /* MainMenu.xib */; };
 		BA5D1B921E464BC4005ED4FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BA5D1B911E464BC4005ED4FA /* Credits.rtf */; };
+		BAC880131E47CE490075C35C /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC880111E47CE490075C35C /* AboutWindowController.swift */; };
+		BAC880141E47CE490075C35C /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC880121E47CE490075C35C /* AboutWindow.xib */; };
 		BADFC8BD1E456C4500213EEA /* TapController.m in Sources */ = {isa = PBXBuildFile; fileRef = BADFC8BC1E456C4500213EEA /* TapController.m */; };
 		BADFC8C11E456E5F00213EEA /* off.pdf in Resources */ = {isa = PBXBuildFile; fileRef = BADFC8BE1E456E5F00213EEA /* off.pdf */; };
 		BADFC8C21E456E5F00213EEA /* on.pdf in Resources */ = {isa = PBXBuildFile; fileRef = BADFC8BF1E456E5F00213EEA /* on.pdf */; };
@@ -25,6 +27,8 @@
 		BA39CA2A1E452F1C0004AF68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BA39CA2C1E452F1C0004AF68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA5D1B911E464BC4005ED4FA /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		BAC880111E47CE490075C35C /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		BAC880121E47CE490075C35C /* AboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
 		BADFC8B81E456C1500213EEA /* Little Fingers-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Little Fingers-Bridging-Header.h"; sourceTree = "<group>"; };
 		BADFC8BB1E456C4500213EEA /* TapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapController.h; sourceTree = "<group>"; };
 		BADFC8BC1E456C4500213EEA /* TapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapController.m; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 			children = (
 				BA39CA251E452F1B0004AF68 /* AppDelegate.swift */,
 				BADFC8C61E45706600213EEA /* StatusItemController.swift */,
+				BAC880111E47CE490075C35C /* AboutWindowController.swift */,
 				BA39CA271E452F1C0004AF68 /* Assets.xcassets */,
 				BADFC8BB1E456C4500213EEA /* TapController.h */,
 				BADFC8BC1E456C4500213EEA /* TapController.m */,
@@ -74,6 +79,7 @@
 				BADFC8BF1E456E5F00213EEA /* on.pdf */,
 				BADFC8C01E456E5F00213EEA /* privacy.scpt */,
 				BA39CA291E452F1C0004AF68 /* MainMenu.xib */,
+				BAC880121E47CE490075C35C /* AboutWindow.xib */,
 				BA39CA2C1E452F1C0004AF68 /* Info.plist */,
 				BADFC8B81E456C1500213EEA /* Little Fingers-Bridging-Header.h */,
 			);
@@ -142,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BADFC8C11E456E5F00213EEA /* off.pdf in Resources */,
+				BAC880141E47CE490075C35C /* AboutWindow.xib in Resources */,
 				BA5D1B921E464BC4005ED4FA /* Credits.rtf in Resources */,
 				BA39CA281E452F1C0004AF68 /* Assets.xcassets in Resources */,
 				BA39CA2B1E452F1C0004AF68 /* MainMenu.xib in Resources */,
@@ -160,6 +167,7 @@
 				BA39CA261E452F1B0004AF68 /* AppDelegate.swift in Sources */,
 				BADFC8BD1E456C4500213EEA /* TapController.m in Sources */,
 				BADFC8C71E45706600213EEA /* StatusItemController.swift in Sources */,
+				BAC880131E47CE490075C35C /* AboutWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

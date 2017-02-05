@@ -50,15 +50,12 @@ CGEventRef tapCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	}
 	
 	if (isShiftDown && isControlDown && isOptionDown && isCommandDown && isLDown) {
-		isShiftDown = NO;
-		isControlDown = NO;
-		isOptionDown = NO;
-		isCommandDown = NO;
 		isLDown = NO;
 
 		isLocked = !isLocked;
 		lockChanged();
 		
+		// TODO: hide/show mouse?
 		if (isLocked) {
 			[TapController ignore];
 		}

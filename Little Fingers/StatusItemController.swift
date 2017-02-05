@@ -13,6 +13,8 @@ class StatusItemController: NSObject {
 	var isAccessibilityEnabled = false
 	var accessibilityTimer:Timer?
 	
+	let aboutWindowController = AboutWindowController(windowNibName: "AboutWindow")
+	
 	override init() {
 		super.init()
 		
@@ -71,7 +73,6 @@ class StatusItemController: NSObject {
 		let menu = NSMenu()
 		menu.delegate = self
 		
-		// TODO: populate About page
 		let item = NSMenuItem()
 		item.title = "About Little Fingers"
 		item.action = #selector(showAbout)
@@ -85,12 +86,6 @@ class StatusItemController: NSObject {
 		statusItem.menu = menu
 	}
 	
-	func showPreferences() {
-		// print("show Preferences")
-//		NSApp.activate(ignoringOtherApps: true)
-//		preferencesController.showWindow(NSApp.delegate)
-	}
-	
 	func showSecurityPrivacy() {
 		// print("show Date & Time")
 		let path = Bundle.main.path(forResource: "privacy", ofType: "scpt")
@@ -102,7 +97,10 @@ class StatusItemController: NSObject {
 	func showAbout() {
 		// print("show About")
 		NSApp.activate(ignoringOtherApps: true)
-		NSApp.orderFrontStandardAboutPanel()
+		aboutWindowController.showWindow(NSApp.delegate)
+		
+//		NSApp.activate(ignoringOtherApps: true)
+//		NSApp.orderFrontStandardAboutPanel()
 	}
 	
 	func updateIcon() {
