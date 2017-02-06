@@ -24,7 +24,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		                             "firstRun": true])
 		
 		if defaults.object(forKey: "firstRun") as! Bool {
-			// print("firstRun")
 			defaults.set(false, forKey: "firstRun")
 			LoginItems.addApp()
 		}

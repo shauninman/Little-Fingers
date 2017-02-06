@@ -8,8 +8,6 @@
 
 import Cocoa
 
-// TODO: hookup launch at login
-
 // TODO: launch at login checkbox is unresponsive at launch...
 // TODO: credits text view doesn't scroll at launch either
 // TODO: window controls don't work either? wth
