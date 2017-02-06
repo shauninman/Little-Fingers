@@ -38,7 +38,12 @@ class StatusItemController: NSObject {
 	func checkAccessibility() {
 		isAccessibilityEnabled = TapController.isAccessibilityEnabled()
 		if isAccessibilityEnabled {
-			showAbout()
+			// delay allows about window to be repsonsive on launch, not sure why...
+			Timer.scheduledTimer(timeInterval: 0.1,
+			                     target: self,
+			                     selector: #selector(showAbout),
+			                     userInfo: nil,
+			                     repeats: false)
 		}
 		else {
 			showSecurityPrivacy()
