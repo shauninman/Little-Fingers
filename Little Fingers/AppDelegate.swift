@@ -13,11 +13,24 @@ let SINotificationLockChanged = "SINotificationLockChanged"
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-	let tapController = TapController()
-	let statusItemController = StatusItemController()
+	var tapController:TapController!
+	var statusItemController:StatusItemController!
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		NSApplication.shared().setActivationPolicy(.accessory)
+		
+		let defaults = UserDefaults.standard
+		defaults.register(defaults: ["autoLaunch": true,
+		                             "firstRun": true])
+		
+		if defaults.object(forKey: "firstRun") as! Bool {
+			// print("firstRun")
+			defaults.set(false, forKey: "firstRun")
+			LoginItems.addApp()
+		}
+		
+		tapController = TapController()
+		statusItemController = StatusItemController()
 	}
 
 	func applicationWillTerminate(_ aNotification: Notification) {

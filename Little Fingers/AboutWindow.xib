@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AboutWindowController" customModule="Little_Fingers" customModuleProvider="target">
             <connections>
+                <outlet property="autoLaunch" destination="3Al-bX-U1b" id="ecb-NU-96v"/>
                 <outlet property="creditsScrollView" destination="vEh-hX-d7D" id="f1G-tv-Ba6"/>
                 <outlet property="iconImageView" destination="HAE-tO-Sfe" id="p6y-FN-XbP"/>
                 <outlet property="nameLabel" destination="4uz-NS-kQd" id="Uas-4k-0bB"/>
@@ -31,6 +32,9 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="changeAutoLaunch:" target="-2" id="iMq-N2-mrc"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4uz-NS-kQd">
                         <rect key="frame" x="18" y="242" width="248" height="18"/>
