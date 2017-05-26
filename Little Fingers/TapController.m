@@ -16,7 +16,7 @@
 +(void)ignore;
 @end
 
-CGKeyCode kSIKeyCodeL = (CGKeyCode)37;
+CGKeyCode kSIKeyCodeL = (CGKeyCode)37; // TODO: make keyboard agnostic? http://stackoverflow.com/a/33584460/145965
 
 BOOL isCommandDown = NO;
 BOOL isOptionDown = NO;
